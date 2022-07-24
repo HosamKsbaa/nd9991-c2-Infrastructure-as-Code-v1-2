@@ -7,3 +7,26 @@
 AWSTemplateFormatVersion: 2010-09-09
 Description: Hosam Kasbaa / Udacity  DevOps 
 
+Parameters:
+    Enviroment:
+      Type: String
+      Default: dev
+
+    VpcCidr:
+      Type: String
+      Default: ds
+
+
+
+
+Resources:
+    VPC:
+        Type: AWS::EC2::VPC
+        Properties:
+            CidrBlock: !Ref VpcCIDR
+            EnableDnsHostnames: true
+            Tags:
+                - Key: Name
+                  Value: !Ref EnvironmentName
+
+
